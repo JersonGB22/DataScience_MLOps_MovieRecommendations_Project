@@ -15,7 +15,7 @@ df_movie["director"]=df_movie.director.apply(lambda x: [i.lower() for i in x])
 df_movie["title"]=df_movie.title.apply(lambda x: x.lower())
 
 # Data frame para el endpoint de ML
-#df_ml=pd.read_csv(r"https://raw.githubusercontent.com/JersonGB22/ProyectoIndividual1_Henry/main/Datasets/API_ML_movie.csv")
+df_ml=pd.read_csv(r"https://raw.githubusercontent.com/JersonGB22/ProyectoIndividual1_MLOps_Henry/main/Datasets/API_ML_movie.csv")
 
 # Instanciamos la clase FastAPI para construir la aplicación de Interfaz de Consultas
 app=FastAPI()
@@ -156,17 +156,15 @@ def get_director(director:str):
                  "costo":df.budget.to_list()[i],
                  "ganacia":df.revenue.to_list()[i]}
             lista.append(dic)
-        return  f"El director '{director}' tuvo un retorno total de {float(round(df['return'].sum(),2))}. Algunos datos de cada película que dirigió: ",lista
+        return f"El director '{director}' tuvo un retorno total de {float(round(df['return'].sum(),2))}. Algunos datos de cada película que dirigió: ",lista
     
 # Función 7 (ML): 5 películas con mayor puntaje (más similares) a una específica en orden descendente
-"""
 @app.get("/recomendacion/{titulo}",
          summary="Cinco películas con mayor puntaje (más similares) a una específica en orden descendente")
 def recomendacion(titulo:str):
     titulo=titulo.lower()
     if titulo not in df_ml.title.tolist():
-        return {"Nombre de la película incorrecto. Algunos datos de ejemplo correctos":list(df_ml.title)[:10]}
+        return f"Nombre de la película incorrecto. Algunos datos de ejemplo correctos: {list(df_ml.title)[:10]}"
     else:
         indices=eval(df_ml[df_ml.title==titulo].index_movie.iloc[0])
         return {"lista recomendada":list(df_ml.title.iloc[indices].values)}
-"""
