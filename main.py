@@ -66,10 +66,11 @@ def cantidad_filmaciones_mes(mes:str):
     "noviembre": "November",
     "diciembre": "December"}
     if mes not in list(dic_month.keys()):
-        return f"Nombre de mes incorrecto. Datos correctos: {list(dic_month.keys())}"
+        return {"Nombre de mes incorrecto. Datos correctos":list(dic_month.keys())}
     else:
         cantidad=df_movie[df_movie.release_date.dt.month_name()==dic_month[mes]].shape[0]
-        return f"{cantidad} películas fueron estrenadas en el mes de {mes}"
+        return {"mes":mes,
+                "cantidad":cantidad}
 
 # Función 2: Cantidad de peliculas que se estrenaron por nombre del día de la semana
 @app.get("/cantidad_filmaciones_dia/{dia}",summary="Cantidad de peliculas que se estrenaron por nombre del día de la semana")
@@ -84,10 +85,11 @@ def cantidad_filmaciones_dia(dia:str):
     "sábado": "Saturday",
     "domingo": "Sunday"}
     if dia not in list(dic_week.keys()):
-        return f"Nombre de día de semana incorrecto. Datos correctos: {list(dic_week.keys())}"
+        return {"Nombre de día de semana incorrecto. Datos correctos":list(dic_week.keys())}
     else:
         cantidad=df_movie[df_movie.release_date.dt.day_name()==dic_week[dia]].shape[0]
-        return f"{cantidad} películas fueron estrenadas en los días {dia}"      
+        return {"dia":dia,
+                "cantidad":cantidad}    
 
 # Función 3: Año de estreno y puntaje de popularidad por nombre de la filmación
 """
@@ -99,26 +101,32 @@ compartan el mismo nombre, como en el caso de Cinderella, se seleccionará aquel
 def score_titulo(titulo:str):
     titulo=titulo.lower()
     if titulo not in df_movie.title.unique():
-        return f"Nombre de película incorrecto. Algunos datos de ejemplo correctos: {df_movie.title.iloc[:10].to_list()}"
+        return {"Nombre de película incorrecto. Algunos datos de ejemplo correctos":df_movie.title.iloc[:100].to_list()}
     else:
         año=int(df_movie[df_movie.title==titulo].release_year.max())
         score=float(round(df_movie[(df_movie.title==titulo)&(df_movie.release_year==año)].popularity.iloc[0],2))
-        return f"La película '{titulo}' fue estrenada en el año {año} con un score/popularidad de {score}"
+        return {"titulo":titulo,
+                "anio":año,
+                "popularidad":score}
 
 # Función 4:  Cantidad de votos (mayor o igual a 2000) y valor promedio de votaciones por película
-@app.get("/votos_titulo/{titulo}",summary="Año de estreno, cantidad de votos y valor promedio de votaciones por película")
+@app.get("/votos_titulo/{titulo}",summary="Año de estreno, cantidad de votos (>=2000) y valor promedio de votaciones por película")
 def votos_titulo(titulo:str):
     titulo=titulo.lower()
     if titulo not in df_movie.title.unique():
-        return f"Nombre de película incorrecto. Algunos datos de ejemplo correctos: {df_movie.title.iloc[:10].to_list()}"
+        return {"Nombre de película incorrecto. Algunos datos de ejemplo correctos":df_movie.title.iloc[:100].to_list()}
     else:
        año=int(df_movie[df_movie.title==titulo].release_year.max()) 
        cantidad=int(df_movie[(df_movie.title==titulo)&(df_movie.release_year==año)].vote_count.iloc[0])
        if cantidad<2000:
-           return "La película cuenta con menos de 2000 valoraciones. Ingrese otro nombre de película."
+           return {"La película cuenta con menos de 2000 valoraciones, ingrese otro nombre. Algunas películas con más de 2000 valoraciones":
+                   df_movie[df_movie.vote_count>=2000].title.iloc[:100].to_list()}
        else:
            promedio=float(round(df_movie[(df_movie.title==titulo)&(df_movie.release_year==año)].vote_average.iloc[0],2))
-           return f"La película '{titulo}' fue estrenada en el año {año}. La misma cuenta con un total de {cantidad} valoraciones, con un promedio de {promedio}"
+           return {"titulo":titulo,
+                   "anio":año,
+                   "voto_total":cantidad,
+                   "voto_promedio":promedio}
 
 # Función 5: Cantidad de películas, retorno total y promedio de retorno por actor (que no participó como director)
 """
@@ -130,10 +138,13 @@ según las consignas.
 def get_actor(actor:str):
     actor=actor.lower()
     if actor not in df_movie.actor.explode().to_list():
-        return f"Nombre de actor incorrecto. Algunos datos de ejemplo correctos: {df_movie.actor.explode().to_list()[:10]}"
+        return {"Nombre de actor incorrecto. Algunos datos de ejemplo correctos":df_movie.actor.explode().to_list()[:100]}
     else:
         df=df_movie[(df_movie.actor.apply(lambda x: actor in x))&(df_movie.director.apply(lambda x: actor not in x))]
-        return f"El actor '{actor}' ha participado en {df.shape[0]} películas, el mismo ha conseguido un retorno total de {float(round(df['return'].sum(),2))} con un promedio de retorno de {float(round(df['return'].mean(),2))}"
+        return {"actor":actor,
+                "cantidad_filmaciones":df.shape[0],
+                "retorno_total":float(round(df["return"].sum(),2)),
+                "retorno_promedio":float(round(df['return'].mean(),2))}
 
 # Función 6: Retorno total, nombre de cada película, fecha de lanzamiento, retorno individual, costo y ganancia de la misma por director
 """
@@ -144,7 +155,7 @@ película que dirigió. Por otro lado, la ganancia se extraerá del campo 'reven
 def get_director(director:str):
     director=director.lower()
     if director not in df_movie.director.explode().to_list():
-        return f"Nombre de director incorrecto. Algunos datos de ejemplos correctos: {df_movie.director.explode().to_list()[:10]}"
+        return {"Nombre de director incorrecto. Algunos datos de ejemplos correctos":df_movie.director.explode().to_list()[:100]}
     else:
         df=df_movie[df_movie.director.apply(lambda x: director in x)]
         lista=[]
@@ -156,7 +167,10 @@ def get_director(director:str):
                  "costo":df.budget.to_list()[i],
                  "ganacia":df.revenue.to_list()[i]}
             lista.append(dic)
-        return f"El director '{director}' tuvo un retorno total de {float(round(df['return'].sum(),2))}. Algunos datos de cada película que dirigió: ",lista
+        return {"director":director,
+                "retorno_total":float(round(df['return'].sum(),2)),
+                "cantidad_peliculas":df.shape[0],
+                "datos de cada película que dirigió":lista}
     
 # Función 7 (ML): 5 películas con mayor puntaje (más similares) a una específica en orden descendente
 @app.get("/recomendacion/{titulo}",
@@ -164,7 +178,7 @@ def get_director(director:str):
 def recomendacion(titulo:str):
     titulo=titulo.lower()
     if titulo not in df_ml.title.tolist():
-        return f"Nombre de la película incorrecto. Algunos datos de ejemplo correctos: {list(df_ml.title)[:10]}"
+        return {"Nombre de película incorrecto. Algunos datos de ejemplo correctos":list(df_ml.title)[:10-0]}
     else:
         indices=eval(df_ml[df_ml.title==titulo].index_movie.iloc[0])
         return {"lista recomendada":list(df_ml.title.iloc[indices].values)}
