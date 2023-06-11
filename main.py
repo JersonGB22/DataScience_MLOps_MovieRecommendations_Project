@@ -178,7 +178,7 @@ def get_director(director:str):
 def recomendacion(titulo:str):
     titulo=titulo.lower()
     if titulo not in df_ml.title.tolist():
-        return {"Nombre de película incorrecto. Algunos datos de ejemplo correctos":list(df_ml.title)[:10-0]}
+        return {"Nombre de película incorrecto. Algunos datos de ejemplo correctos":list(df_ml.title)[:100]}
     else:
         indices=eval(df_ml[df_ml.title==titulo].index_movie.iloc[0])
         return {"lista recomendada":list(df_ml.title.iloc[indices].values)}
