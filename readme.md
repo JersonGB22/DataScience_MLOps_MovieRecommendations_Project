@@ -163,5 +163,5 @@ La documentación interactiva ha sido generada automáticamente por FastAPI, y e
 
 # **Datos del Autor:**
 ## ***Jerson Brayan Gimenes Beltrán***
-
+### **Linkedin:** https://www.linkedin.com/in/jerson-gimenes-beltran/
 ### **Correo electrónico:** jerson.gimenesbeltran@gmail.com
