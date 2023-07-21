@@ -118,50 +118,32 @@ La documentación interactiva ha sido generada automáticamente por FastAPI, y e
 
 ## [Link al video explicativo del proyecto](https://drive.google.com/file/d/1tFyw5xJCZJDHLZQDeWwybW9nFWAdnEQe/view?usp=sharing)
 
-# **Tecnologías utilizadas:**
-| Technology | Documentation |
-|------------|---------------|
-| Visual Studio Code (VSC) | https://code.visualstudio.com/docs |
-| Python | https://docs.python.org/3/ |
-| Render | https://render.com/docs |
-| Git | https://git-scm.com/doc |
-| GitHub | https://docs.github.com/en |
-| Git LFS | https://git-lfs.com/ |
-| Pandas | https://pandas.pydata.org/docs/ |
-| Scikit-learn (sklearn) | https://scikit-learn.org/stable/documentation.html |
-| FastAPI | https://fastapi.tiangolo.com/ |
-| Uvicorn | https://www.uvicorn.org/ |
-| NumPy | https://numpy.org/doc/ |
-| Ydata-Profiling | https://ydata-profiling.ydata.ai/docs/master/index.html |
-| Matplotlib | https://matplotlib.org/stable/contents.html |
-| Seaborn | https://seaborn.pydata.org/ |
-| NLTK | https://www.nltk.org/ |
-| Regex (expresiones regulares) | https://docs.python.org/3/library/re.html |
-| Stop words | https://pypi.org/project/stop-words/ |
-| Stylecloud | https://pypi.org/project/stylecloud/ |
-| Googletrans | https://pypi.org/project/googletrans/ |
+## **Tecnologías utilizadas:**
+[![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white&labelColor=101010)](https://code.visualstudio.com/docs)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)](https://docs.python.org/3/) 
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white&labelColor=101010)](https://git-scm.com/doc)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)](https://docs.github.com/en)
+[![Git LFS](https://img.shields.io/badge/Git%20LFS-F34F29?style=for-the-badge&logo=git-lfs&logoColor=white&labelColor=101010)](https://git-lfs.com/)
 
+[![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white&labelColor=101010)](https://render.com/docs)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white&labelColor=101010)](https://fastapi.tiangolo.com/)
+[![Uvicorn](https://img.shields.io/badge/Uvicorn-3F51B5?style=for-the-badge&logo=Gunicorn&logoColor=white&labelColor=101010)](https://www.uvicorn.org/)
 
-<p>
-  <img src="https://code.visualstudio.com/assets/favicon.ico" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_477db83f729d63210139ec7cd29c1351/render-render.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1200px-Git_icon.svg.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://github.com/fluidicon.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://img2.helpnetsecurity.com/posts2020/git-lfs-logo.jpg" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/2560px-Pandas_logo.svg.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/640px-Scikit_learn_logo_small.svg.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://raw.githubusercontent.com/tomchristie/uvicorn/master/docs/uvicorn.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/NumPy_logo_2020.svg/1200px-NumPy_logo_2020.svg.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://camo.githubusercontent.com/350907f8f83a7a83e678cfdd24b85ecc3948a2cc469a86c61d2db7e393246626/68747470733a2f2f6173736574732e79646174612e61692f6f73732f79646174612d70726f66696c696e675f626c61636b2e706e67" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://d33wubrfki0l68.cloudfront.net/e33fd6f372aa5d51e7b0de4bd763bd983251881e/4b0f4/blog/customising-matplotlib/matplot_title_logo.png" height="100" width="auto" style="max-width: 50%;" />
-  <img src="https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" height="80" width="auto" style="max-width: 50%;" />
-  <img src="https://miro.medium.com/v2/resize:fit:592/0*zKRz1UgqpOZ4bvuA" height="80" width="auto" style="max-width: 50%;" />
-  <img src="https://www.freecodecamp.org/news/content/images/2023/02/regexpy.png" height="80" width="auto" style="max-width: 50%;" />
-</p>
+#### **Librerías de Python:**
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white&labelColor=101010)](https://pandas.pydata.org/docs/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white&labelColor=101010)](https://scikit-learn.org/stable/documentation.html)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white&labelColor=101010)](https://numpy.org/doc/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-007ACC?style=for-the-badge&logo=pypi&logoColor=white&labelColor=101010)](https://matplotlib.org/stable/contents.html)
+[![Seaborn](https://img.shields.io/badge/Seaborn-008080?style=for-the-badge&logo=pypi&logoColor=white&labelColor=101010)](https://seaborn.pydata.org/)
+[![Stop words](https://img.shields.io/badge/Stop%20words-808080?style=for-the-badge&logo=pypi&logoColor=white&labelColor=101010)](https://pypi.org/project/stop-words/)
+
+[![Stylecloud](https://img.shields.io/badge/Stylecloud-3693F3?style=for-the-badge&logo=icloud&logoColor=white&labelColor=101010)](https://pypi.org/project/stylecloud/)
+[![Googletrans](https://img.shields.io/badge/Googletrans-4285F4?style=for-the-badge&logo=googletranslate&logoColor=white&labelColor=101010)](https://pypi.org/project/googletrans/)
+[![NLTK](https://img.shields.io/badge/NLTK-FFD700?style=for-the-badge&logo=pypi&logoColor=white&labelColor=101010)](https://www.nltk.org/)
+[![Regex](https://img.shields.io/badge/Regex-8B0000?style=for-the-badge&logo=pypi&logoColor=white&labelColor=101010)](https://docs.python.org/3/library/re.html)
+[![Ydata-Profiling](https://img.shields.io/badge/Ydata--Profiling-FF4500?style=for-the-badge&logo=pypi&logoColor=white&labelColor=101010)](https://ydata-profiling.ydata.ai/docs/master/index.html)
 
 # **Datos del Autor:**
-## ***Jerson Brayan Gimenes Beltrán***
+## ***Jerson Brayan Gimenes Beltrán - Data Scientist***
 ### **Linkedin:** https://www.linkedin.com/in/jerson-gimenes-beltran/
 ### **Correo electrónico:** jerson.gimenesbeltran@gmail.com
